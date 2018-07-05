@@ -294,7 +294,7 @@ void publish_vel(){
 
 
 int main(int argc, char** argv){
-    ros::init(argc, argv, "planner_node");
+    ros::init(argc, argv, "steering_node");
     ros::NodeHandle nh;
     ros::Rate rate(10);
     Steering::SeekFlee seek_flee;
