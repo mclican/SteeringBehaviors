@@ -254,37 +254,20 @@ void publish_vel(){
 //(pow(x_dist, 2)+ pow(y_dist, 2) < pow(min_dist_to_robot, 2))
 // flee if radius decreases to limit, seek if radius increases than limit
 
-            if(pow(x_dist, 2)+ pow(y_dist, 2) < pow(3, 2)){
+            if(pow(x_dist, 2)+ pow(y_dist, 2) < pow(3, 2)){       //If inside perimeter : flee
 
                 limit_vel.linear.x = limit_vel.linear.x * -1;
                 limit_vel.linear.y = limit_vel.linear.y * -1;
                 limit_vel.angular.z = limit_vel.angular.z * 0.5;
                 pub.publish(limit_vel);
                 }
-            else{
+            else{                                                 //else Seek
                 limit_vel.linear.x = limit_vel.linear.x * 1;
                 limit_vel.linear.y = limit_vel.linear.y * 1;
                 limit_vel.angular.z = limit_vel.angular.z * 0.5;
                 pub.publish(limit_vel);
               }
-/*            if(pow(x_dist, 2)+ pow(y_dist, 2) < pow(3, 2)){
-              limit_vel.linear.x = limit_vel.linear.x * -1;
-              limit_vel.linear.y = limit_vel.linear.y * -1;
-              limit_vel.angular.z = limit_vel.angular.z * 0.5;
-              pub.publish(limit_vel);
 
-            }
-            else{
-              int i;
-              ros::Rate rate(10);
-                  geometry_msgs::Twist twistMsg;
-                  twistMsg.linear.x = 0.2;
-                        pub.publish(twistMsg);
-                        rate.sleep();
-                  twistMsg.angular.z = 1.57/1.5;
-                        pub.publish(twistMsg);
-                        rate.sleep();
-*/
             }
           }
 
